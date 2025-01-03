@@ -1,0 +1,78 @@
+.elementor-widget-video .elementor-widget-container {
+    overflow: hidden;
+    transform: translateZ(0px);
+}
+
+.elementor-widget-video .elementor-wrapper {
+    aspect-ratio: var(--video-aspect-ratio);
+}
+
+.elementor-widget-video .elementor-wrapper iframe,
+.elementor-widget-video .elementor-wrapper video {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    border: none;
+    background-color: rgb(0, 0, 0);
+}
+
+@supports not (aspect-ratio:1/1) {
+    .elementor-widget-video .elementor-wrapper {
+        position: relative;
+        overflow: hidden;
+        height: 0px;
+        padding-bottom: calc(100% / var(--video-aspect-ratio));
+    }
+    .elementor-widget-video .elementor-wrapper iframe,
+    .elementor-widget-video .elementor-wrapper video {
+        position: absolute;
+        inset: 0px;
+    }
+}
+
+.elementor-widget-video .elementor-open-inline .elementor-custom-embed-image-overlay {
+    position: absolute;
+    inset: 0px;
+    background-size: cover;
+    background-position: 50% center;
+}
+
+.elementor-widget-video .elementor-custom-embed-image-overlay {
+    cursor: pointer;
+    text-align: center;
+}
+
+.elementor-widget-video .elementor-custom-embed-image-overlay:hover .elementor-custom-embed-play i {
+    opacity: 1;
+}
+
+.elementor-widget-video .elementor-custom-embed-image-overlay img {
+    display: block;
+    width: 100%;
+    aspect-ratio: var(--video-aspect-ratio);
+    object-fit: cover;
+    object-position: center center;
+}
+
+@supports not (aspect-ratio:1/1) {
+    .elementor-widget-video .elementor-custom-embed-image-overlay {
+        position: relative;
+        overflow: hidden;
+        height: 0px;
+        padding-bottom: calc(100% / var(--video-aspect-ratio));
+    }
+    .elementor-widget-video .elementor-custom-embed-image-overlay img {
+        position: absolute;
+        inset: 0px;
+    }
+}
+
+.elementor-widget-video .e-hosted-video .elementor-video {
+    object-fit: cover;
+}
+
+.e-con-inner>.elementor-widget-video,
+.e-con>.elementor-widget-video {
+    width: var(--container-widget-width);
+    --flex-grow: var(--container-widget-flex-grow);
+}
